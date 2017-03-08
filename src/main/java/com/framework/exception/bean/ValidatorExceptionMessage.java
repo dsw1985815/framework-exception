@@ -72,14 +72,6 @@ public class ValidatorExceptionMessage extends ExceptionMessage {
         this.rowNum = rowNum;
     }
 
-    public String getfieldName() {
-        return fieldName;
-    }
-
-    public void setfieldName(String fieldName) {
-        this.fieldName = fieldName;
-    }
-
     public String getFieldName() {
         return fieldName;
     }
@@ -109,23 +101,23 @@ public class ValidatorExceptionMessage extends ExceptionMessage {
         String messageCode = getMessageCode();
         String[] messageParams = getMessageParams();
 
-        sb.append("{code: ");
-        sb.append(messageCode);
+        sb.append("{\"messageCode\": ");
+        sb.append("\""+messageCode+"\"");
         sb.append(", ");
 
-        sb.append("sheet: ");
+        sb.append("\"sheetName\": ");
         sb.append(sheetName);
         sb.append(", ");
 
-        sb.append("row: ");
+        sb.append("\"rowNum\": ");
         sb.append(rowNum);
         sb.append(", ");
 
-        sb.append("field: ");
-        sb.append(fieldName);
+        sb.append("\"fieldName\": ");
+        sb.append("\""+fieldName+"\"");
         sb.append(", ");
 
-        sb.append("args: [");
+        sb.append("\"messageParams\": [");
         if (messageParams != null && messageParams.length != 0) {
             for (int i = 0; i < messageParams.length; i++) {
                 sb.append("\"");
@@ -141,4 +133,6 @@ public class ValidatorExceptionMessage extends ExceptionMessage {
         return sb.toString();
     }
 
+    public ValidatorExceptionMessage() {
+    }
 }

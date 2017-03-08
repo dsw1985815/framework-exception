@@ -62,15 +62,15 @@ public class BusinessExceptionMessage extends ExceptionMessage {
         String messageCode = getMessageCode();
         String[] messageParams = getMessageParams();
 
-        sb.append("{code: ");
-        sb.append(messageCode);
+        sb.append("{\"messageCode\": ");
+        sb.append("\""+messageCode+"\"");
         sb.append(", ");
 
-        sb.append("module: ");
-        sb.append(moduleName);
+        sb.append("\"moduleName\": ");
+        sb.append("\""+moduleName+"\"");
         sb.append(", ");
 
-        sb.append("args: [");
+        sb.append("\"messageParams\": [");
         if (messageParams != null && messageParams.length != 0) {
             for (int i = 0; i < messageParams.length; i++) {
                 sb.append("\"");
@@ -84,5 +84,8 @@ public class BusinessExceptionMessage extends ExceptionMessage {
         sb.append("]}");
 
         return sb.toString();
+    }
+
+    public BusinessExceptionMessage() {
     }
 }

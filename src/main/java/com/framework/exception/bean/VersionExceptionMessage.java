@@ -60,15 +60,15 @@ public class VersionExceptionMessage extends ExceptionMessage {
         String messageCode = getMessageCode();
         String[] messageParams = getMessageParams();
 
-        sb.append("{code: ");
-        sb.append(messageCode);
+        sb.append("{\"messageCode\": ");
+        sb.append("\""+messageCode+"\"");
         sb.append(", ");
 
-        sb.append("tableName: ");
-        sb.append(tableName);
+        sb.append("\"tableName\": ");
+        sb.append("\""+tableName+"\"");
         sb.append(", ");
 
-        sb.append("args: [");
+        sb.append("\"messageParams\": [");
         if (messageParams != null && messageParams.length != 0) {
             for (int i = 0; i < messageParams.length; i++) {
                 sb.append("\"");
@@ -82,5 +82,8 @@ public class VersionExceptionMessage extends ExceptionMessage {
         sb.append("]}");
 
         return sb.toString();
+    }
+
+    public VersionExceptionMessage() {
     }
 }

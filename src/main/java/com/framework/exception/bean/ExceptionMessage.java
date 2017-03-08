@@ -22,7 +22,10 @@ public class ExceptionMessage implements Serializable {
      * 异常信息参数集合
      */
     private String[] messageParams;
-
+    /**
+     * 错误状态码
+     */
+    private String errorCode;
     /**
      * 异常消息处理构造函数 Demo ：<br/>
      * ExceptionMessage dem = new ExceptionMessage(messageCode)<br/>
@@ -65,6 +68,14 @@ public class ExceptionMessage implements Serializable {
         this.messageParams = messageParams;
     }
 
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder("");
 
@@ -86,5 +97,9 @@ public class ExceptionMessage implements Serializable {
         sb.append("]}");
 
         return sb.toString();
+    }
+
+    public ExceptionMessage() {
+
     }
 }
